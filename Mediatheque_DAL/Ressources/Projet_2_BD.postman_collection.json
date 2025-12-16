@@ -1,0 +1,370 @@
+{
+	"info": {
+		"_postman_id": "71b164f6-0cc2-4a0c-976d-28c5b09a1f7a",
+		"name": "Projet_2_BD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44366963"
+	},
+	"item": [
+		{
+			"name": "Get All Media",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Statut 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Réponse est un array\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an(\"array\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"Eurk\",\r\n    \"type\" : \"movie\",\r\n    \"year\" : 1985,\r\n    \"lengthMinutes\" : 94,\r\n    \"genres\" : [\r\n        \"documentary\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5214/mediaItems/GetAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5214",
+					"path": [
+						"mediaItems",
+						"GetAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Media",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Statut 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Réponse contient un champ 'id'\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"id\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Champ 'id' est un nombre\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.be.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Réponse contient un champ 'title'\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"title\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Champ 'title' est une string\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.title).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Réponse contient un champ 'type'\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Champ 'type' est une string\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.type).to.be.a(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Réponse contient un champ 'year'\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"year\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Champ 'year' est un nombre\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.year).to.be.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Réponse contient un champ 'lengthMinutes'\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"lengthMinutes\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Champ 'lengthMinutes' est un nombre\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.lengthMinutes).to.be.a(\"number\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Réponse contient un champ 'genres'\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"genres\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Champ 'genres' est un array\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.genres).to.be.an(\"array\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"Eurk\",\r\n    \"type\" : \"movie\",\r\n    \"year\" : 1985,\r\n    \"lengthMinutes\" : 94,\r\n    \"genres\" : [\r\n        \"documentary\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5214/mediaItems/Add/Media",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5214",
+					"path": [
+						"mediaItems",
+						"Add",
+						"Media"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Favorite Genres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5214/user/:userId/FavoriteGenres",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5214",
+					"path": [
+						"user",
+						":userId",
+						"FavoriteGenres"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Average Length",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Statut 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Réponse est une string\", function () {\r",
+							"    let responseText = pm.response.text();\r",
+							"    pm.expect(typeof responseText).to.eql(\"string\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5214/user/:userId/stats/seen/averageLength",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5214",
+					"path": [
+						"user",
+						":userId",
+						"stats",
+						"seen",
+						"averageLength"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats Seen By Year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Statut 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Réponse est une string\", function () {\r",
+							"    let responseText = pm.response.text();\r",
+							"    pm.expect(typeof responseText).to.eql(\"string\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5214/user/:userId/stats/seen/byYear/:year",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5214",
+					"path": [
+						"user",
+						":userId",
+						"stats",
+						"seen",
+						"byYear",
+						":year"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "1",
+							"type": "string"
+						},
+						{
+							"key": "year",
+							"value": "2015",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get By Genre (Comedy)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Statut 200 OK\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Réponse est un array\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tout les éléments de l'array contiennent le genre 'comedy'\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    let containComedy = true;\r",
+							"    jsonData.forEach((media) => {\r",
+							"        if(!media.genres) {\r",
+							"            containComedy = false;\r",
+							"        }\r",
+							"        containComedy = containComedy && media.genres.includes(\"Comedy\");\r",
+							"    })\r",
+							"    pm.expect(containComedy).to.eql(true);\r",
+							"})"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5214/mediaItems/Get/Genre/:inclusive?genres=comedy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5214",
+					"path": [
+						"mediaItems",
+						"Get",
+						"Genre",
+						":inclusive"
+					],
+					"query": [
+						{
+							"key": "genres",
+							"value": "comedy"
+						}
+					],
+					"variable": [
+						{
+							"key": "inclusive",
+							"value": "true",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

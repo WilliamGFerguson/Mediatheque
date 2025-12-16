@@ -1,0 +1,6 @@
+@Mediatheque_API_HostAddress = http://localhost:5214
+
+GET {{Mediatheque_API_HostAddress}}/Mediatheque/
+Accept: application/json
+
+###
